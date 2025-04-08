@@ -1,2 +1,2 @@
-# kyoto-sento-navi
-京の湯ナビ
+# 京の湯ナビ
+Next.js + TypeScript 構成済みのサンプルアプリです。
