@@ -1,16 +1,18 @@
-// app/map.tsx
 'use client';
 
-import dynamic from 'next/dynamic';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
-const MapView = dynamic(() => import('../components/MapView'), { ssr: false });
-
-export default function MapPage() {
+export default function MapView() {
   return (
-    <div className="py-8 px-4 max-w-5xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">地図で探す</h1>
-      <MapView />
-    </div>
+    <MapContainer center={[35.0116, 135.7681]} zoom={13} style={{ height: '500px', width: '100%' }}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; OpenStreetMap contributors"
+      />
+      <Marker position={[35.0116, 135.7681]}>
+        <Popup>京都の中心</Popup>
+      </Marker>
+    </MapContainer>
   );
 }
