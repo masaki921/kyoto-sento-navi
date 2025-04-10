@@ -3,8 +3,8 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
+import { LatLngTuple } from 'leaflet';
 
-// 赤いピンのアイコン設定
 const redIcon = new L.Icon({
   iconUrl: 'https://maps.google.com/mapfiles/ms/icons/red-dot.png',
   iconSize: [32, 32],
@@ -12,7 +12,8 @@ const redIcon = new L.Icon({
   popupAnchor: [0, -32],
 });
 
-const sentoData = [
+// 型を明示して Leaflet に正しく認識させる
+const sentoData: { name: string; position: LatLngTuple }[] = [
   {
     name: 'サウナの梅湯',
     position: [35.0026, 135.7621],
