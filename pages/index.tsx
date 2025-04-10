@@ -1,148 +1,66 @@
 // pages/index.tsx
-import Link from 'next/link';
+import Image from "next/image";
+import Link from "next/link";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <div className="max-w-6xl mx-auto py-12 px-6 text-gray-900">
-      {/* メインビジュアル */}
-      <section className="relative mb-12">
-        <img
-          src="/main-visual.jpg"
-          alt="京都の銭湯"
-          className="w-full h-96 object-cover rounded-lg shadow-lg"
+    <div className="bg-white text-gray-900">
+      {/* ヒーローセクション */}
+      <section className="relative w-full h-[70vh] bg-black">
+        <Image
+          src="/images/top-visual.jpg" // 仮画像
+          alt="銭湯の外観"
+          layout="fill"
+          objectFit="cover"
+          className="opacity-70"
         />
-        <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center">
-          <h1 className="text-5xl font-extrabold text-white">
-            京都の銭湯で心と体を癒す
+        <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-widest">
+            京の湯ナビ
           </h1>
+          <p className="text-lg md:text-2xl font-light">
+            京都市内の銭湯情報を探す、深める、楽しむ
+          </p>
         </div>
       </section>
 
-      {/* サービス紹介 */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-6">サービス紹介</h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {/* 地図から探す */}
-          <div className="text-center">
-            <img
-              src="/map-search.jpg"
-              alt="地図から探す"
-              className="w-full h-48 object-cover rounded-lg shadow-md mb-4"
-            />
-            <h3 className="text-xl font-semibold mb-2">地図から探す</h3>
-            <p className="text-gray-600 mb-4">
-              京都市内の銭湯を地図上で簡単に探せます。
-            </p>
-            <Link href="/map">
-              <span className="text-indigo-600 font-medium hover:underline">
-                詳しく見る
-              </span>
-            </Link>
+      {/* ナビゲーションカード */}
+      <section className="py-12 px-4 max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+        <Link href="/map" className="group border rounded-xl shadow-lg overflow-hidden">
+          <div className="h-48 relative">
+            <Image src="/images/map.jpg" alt="地図から探す" layout="fill" objectFit="cover" />
           </div>
-          {/* 文化を知る */}
-          <div className="text-center">
-            <img
-              src="/culture.jpg"
-              alt="文化を知る"
-              className="w-full h-48 object-cover rounded-lg shadow-md mb-4"
-            />
-            <h3 className="text-xl font-semibold mb-2">文化を知る</h3>
-            <p className="text-gray-600 mb-4">
-              京都の銭湯文化や歴史について学べます。
-            </p>
-            <Link href="/culture">
-              <span className="text-indigo-600 font-medium hover:underline">
-                詳しく見る
-              </span>
-            </Link>
+          <div className="p-4 group-hover:bg-gray-50 transition">
+            <h2 className="text-xl font-semibold mb-2">地図から探す</h2>
+            <p className="text-sm text-gray-600">京都市内の銭湯を地図上から簡単に検索できます。</p>
           </div>
-          {/* イベント情報 */}
-          <div className="text-center">
-            <img
-              src="/events.jpg"
-              alt="イベント情報"
-              className="w-full h-48 object-cover rounded-lg shadow-md mb-4"
-            />
-            <h3 className="text-xl font-semibold mb-2">イベント情報</h3>
-            <p className="text-gray-600 mb-4">
-              銭湯で開催される最新のイベント情報をお届けします。
-            </p>
-            <Link href="/events">
-              <span className="text-indigo-600 font-medium hover:underline">
-                詳しく見る
-              </span>
-            </Link>
+        </Link>
+
+        <Link href="/culture" className="group border rounded-xl shadow-lg overflow-hidden">
+          <div className="h-48 relative">
+            <Image src="/images/culture.jpg" alt="銭湯文化" layout="fill" objectFit="cover" />
           </div>
-        </div>
+          <div className="p-4 group-hover:bg-gray-50 transition">
+            <h2 className="text-xl font-semibold mb-2">銭湯の文化を知る</h2>
+            <p className="text-sm text-gray-600">京都の銭湯が育んできた地域文化や歴史を紹介します。</p>
+          </div>
+        </Link>
+
+        <Link href="/events" className="group border rounded-xl shadow-lg overflow-hidden">
+          <div className="h-48 relative">
+            <Image src="/images/events.jpg" alt="イベント情報" layout="fill" objectFit="cover" />
+          </div>
+          <div className="p-4 group-hover:bg-gray-50 transition">
+            <h2 className="text-xl font-semibold mb-2">イベント情報</h2>
+            <p className="text-sm text-gray-600">銭湯で行われる音楽や親子向けイベントをチェック。</p>
+          </div>
+        </Link>
       </section>
 
-      {/* おすすめの銭湯 */}
-      <section className="mb-12">
-        <h2 className="text-3xl font-bold mb-6">おすすめの銭湯</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* サウナの梅湯 */}
-          <div className="flex items-center">
-            <img
-              src="/umeyu.jpg"
-              alt="サウナの梅湯"
-              className="w-1/3 h-32 object-cover rounded-lg shadow-md mr-6"
-            />
-            <div>
-              <h3 className="text-xl font-semibold mb-2">サウナの梅湯</h3>
-              <p className="text-gray-600 mb-2">
-                地元アーティストとサウナの融合を楽しめる銭湯です。
-              </p>
-              <Link href="/sento/umeyu">
-                <span className="text-indigo-600 font-medium hover:underline">
-                  詳しく見る
-                </span>
-              </Link>
-            </div>
-          </div>
-          {/* 白山湯 高瀬川店 */}
-          <div className="flex items-center">
-            <img
-              src="/hakusanyu.jpg"
-              alt="白山湯 高瀬川店"
-              className="w-1/3 h-32 object-cover rounded-lg shadow-md mr-6"
-            />
-            <div>
-              <h3 className="text-xl font-semibold mb-2">白山湯 高瀬川店</h3>
-              <p className="text-gray-600 mb-2">
-                親子で楽しめる街中のオアシス的な銭湯です。
-              </p>
-              <Link href="/sento/hakusanyu">
-                <span className="text-indigo-600 font-medium hover:underline">
-                  詳しく見る
-                </span>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 最新ニュース */}
-      <section>
-        <h2 className="text-3xl font-bold mb-6">最新ニュース</h2>
-        <ul className="space-y-4">
-          <li className="border-b pb-4">
-            <h3 className="text-lg font-semibold mb-1">
-              新しい銭湯がオープンしました！
-            </h3>
-            <p className="text-gray-600 text-sm">
-              2025年4月10日｜京都市内に最新設備を備えた銭湯がオープンしました。
-            </p>
-          </li>
-          <li className="border-b pb-4">
-            <h3 className="text-lg font-semibold mb-1">
-              サウナイベント開催決定！
-            </h3>
-            <p className="text-gray-600 text-sm">
-              2025年5月15日｜サウナ愛好家のための特別イベントが開催されます。
-            </p>
-          </li>
-        </ul>
-      </section>
+      {/* フッター */}
+      <footer className="bg-gray-100 text-center py-6 text-sm text-gray-500">
+        &copy; 2025 京の湯ナビ. All rights reserved.
+      </footer>
     </div>
   );
 }
