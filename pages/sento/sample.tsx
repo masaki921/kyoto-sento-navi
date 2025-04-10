@@ -1,0 +1,1 @@
+export default function SentoDetail() { return <div>銭湯詳細ページ</div>; }
