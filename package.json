@@ -1,1 +1,5 @@
-{ "name": "kyoto-sento-navi", "scripts": { "dev": "next dev", "build": "next build", "start": "next start" }, "dependencies": { "next": "14.1.4", "react": "18.2.0", "react-dom": "18.2.0", "leaflet": "^1.9.4" } }
+{ "name": "kyoto-sento-navi", "scripts": { "dev": "next dev", "build": "next build", "start": "next start" }, "dependencies": { "next": "14.1.4", "react": "18.2.0", "react-dom": "18.2.0", "leaflet": "^1.9.4" } }"devDependencies": {
+  "typescript": "^5.3.3",
+  "@types/react": "^18.2.42",
+  "@types/node": "^20.11.17"
+}
