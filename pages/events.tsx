@@ -1,1 +1,0 @@
-export default function EventsPage() { return <div>イベント情報ページ</div>; }
